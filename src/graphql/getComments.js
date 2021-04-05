@@ -85,7 +85,7 @@ function getComments (issue) {
       }
     }
   ).then(res => {
-    const data = res.data.data.repository.issue.comments
+    const data = res.data.data.repository.pullRequest.comments
     const items = data.nodes.map(node => {
       const author = node.author || defaultAuthor
 

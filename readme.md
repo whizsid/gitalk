@@ -8,12 +8,12 @@
 [![coveralls][coveralls-image]][coveralls-url] 
 [![gzip-size][gzip-size]][gzip-url]
 
-Gitalk is a modern comment component based on GitHub Issue and Preact.
+Gitalk is a modern comment component based on GitHub pull request and Preact.
 
 ## Features
 
 - Authentication with github account
-- Serverless, all comments will be stored as github issues
+- Serverless, all comments will be stored as github pull requests
 - Both personal and organization github projects can be used to store comments
 - Localization, support multiple languages [en, zh-CN, zh-TW, es-ES, fr, ru, de, pl, ko]
 - Facebook-like distraction free mode (Can be enabled via the `distractionFreeMode` option)

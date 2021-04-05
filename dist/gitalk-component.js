@@ -58828,7 +58828,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var GT_ACCESS_TOKEN = exports.GT_ACCESS_TOKEN = 'GT_ACCESS_TOKEN';
-var GT_VERSION = exports.GT_VERSION = "1.7.2"; // eslint-disable-line
+var GT_VERSION = exports.GT_VERSION = "1.7.3"; // eslint-disable-line
 var GT_COMMENT = exports.GT_COMMENT = 'GT_COMMENT';
 
 /***/ }),
@@ -58887,7 +58887,7 @@ function getComments(issue) {
       Authorization: 'bearer ' + this.accessToken
     }
   }).then(function (res) {
-    var data = res.data.data.repository.issue.comments;
+    var data = res.data.data.repository.pullRequest.comments;
     var items = data.nodes.map(function (node) {
       var author = node.author || defaultAuthor;
 
