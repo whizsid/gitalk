@@ -13,7 +13,7 @@ const getQL = (vars, pagerDirection) => {
     $pageSize: Int!
   ) {
     repository(owner: $owner, name: $repo) {
-      issue(number: $id) {
+      pullRequest(number: $id) {
         title
         url
         bodyHTML
@@ -100,7 +100,7 @@ function getComments (issue) {
         created_at: node.createdAt,
         body_html: node.bodyHTML,
         body: node.body,
-        html_url: `https://github.com/${owner}/${repo}/issues/${issue.number}#issuecomment-${node.databaseId}`,
+        html_url: `https://github.com/${owner}/${repo}/pull/${issue.number}#issuecomment-${node.databaseId}`,
         reactions: node.reactions
       }
     })

@@ -1,7 +1,7 @@
 {
-  "name": "gitalk",
+  "name": "gitalk-pr",
   "version": "1.7.2",
-  "description": "A comment plugin base on GitHub issues",
+  "description": "A comment plugin base on GitHub pull requests",
   "keywords": [
     "comment",
     "plugin",

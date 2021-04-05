@@ -302,7 +302,7 @@ function toInteger(dirtyNumber) {
 /* 7 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.11' };
+var core = module.exports = { version: '2.6.12' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -2687,7 +2687,7 @@ var store = global[SHARED] || (global[SHARED] = {});
 })('versions', []).push({
   version: core.version,
   mode: __webpack_require__(39) ? 'pure' : 'global',
-  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+  copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 });
 
 
@@ -58852,7 +58852,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var getQL = function getQL(vars, pagerDirection) {
   var cursorDirection = pagerDirection === 'last' ? 'before' : 'after';
-  var ql = '\n  query getIssueAndComments(\n    $owner: String!,\n    $repo: String!,\n    $id: Int!,\n    $cursor: String,\n    $pageSize: Int!\n  ) {\n    repository(owner: $owner, name: $repo) {\n      issue(number: $id) {\n        title\n        url\n        bodyHTML\n        createdAt\n        comments(' + pagerDirection + ': $pageSize, ' + cursorDirection + ': $cursor) {\n          totalCount\n          pageInfo {\n            ' + (pagerDirection === 'last' ? 'hasPreviousPage' : 'hasNextPage') + '\n            ' + (cursorDirection === 'before' ? 'startCursor' : 'endCursor') + '\n          }\n          nodes {\n            id\n            databaseId\n            author {\n              avatarUrl\n              login\n              url\n            }\n            bodyHTML\n            body\n            createdAt\n            reactions(first: 100, content: HEART) {\n              totalCount\n              viewerHasReacted\n              pageInfo{\n                hasNextPage\n              }\n              nodes {\n                id\n                databaseId\n                user {\n                  login\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  ';
+  var ql = '\n  query getIssueAndComments(\n    $owner: String!,\n    $repo: String!,\n    $id: Int!,\n    $cursor: String,\n    $pageSize: Int!\n  ) {\n    repository(owner: $owner, name: $repo) {\n      pullRequest(number: $id) {\n        title\n        url\n        bodyHTML\n        createdAt\n        comments(' + pagerDirection + ': $pageSize, ' + cursorDirection + ': $cursor) {\n          totalCount\n          pageInfo {\n            ' + (pagerDirection === 'last' ? 'hasPreviousPage' : 'hasNextPage') + '\n            ' + (cursorDirection === 'before' ? 'startCursor' : 'endCursor') + '\n          }\n          nodes {\n            id\n            databaseId\n            author {\n              avatarUrl\n              login\n              url\n            }\n            bodyHTML\n            body\n            createdAt\n            reactions(first: 100, content: HEART) {\n              totalCount\n              viewerHasReacted\n              pageInfo{\n                hasNextPage\n              }\n              nodes {\n                id\n                databaseId\n                user {\n                  login\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  ';
 
   if (vars.cursor === null) delete vars.cursor;
 
@@ -58902,7 +58902,7 @@ function getComments(issue) {
         created_at: node.createdAt,
         body_html: node.bodyHTML,
         body: node.body,
-        html_url: 'https://github.com/' + owner + '/' + repo + '/issues/' + issue.number + '#issuecomment-' + node.databaseId,
+        html_url: 'https://github.com/' + owner + '/' + repo + '/pull/' + issue.number + '#issuecomment-' + node.databaseId,
         reactions: node.reactions
       };
     });
