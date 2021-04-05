@@ -2,6 +2,10 @@
   "name": "gitalk-pr",
   "version": "1.7.2",
   "description": "A comment plugin base on GitHub pull requests",
+  "homepage": "https://github.com/whizsid/gitalk",
+  "repository": {
+    "url": "https://github.com/whizsid/gitalk.git"
+  },
   "keywords": [
     "comment",
     "plugin",
